@@ -17,7 +17,6 @@ const routes: Routes = [
     path: '**',
     pathMatch: 'full',
     redirectTo: 'resume',
-    canActivate: [LoginGuard],
   },
 ];
 
