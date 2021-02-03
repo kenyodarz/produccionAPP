@@ -1,21 +1,24 @@
 <div class="wrapper">
   <div class="content">
     <div class="text">Login</div>
-    <form action="#">
+    <form [formGroup]="loginForm"
+      #f="ngForm"
+      novalidate
+      (ngSubmit)="onSubmit()">
       <div class="field">
-        <input type="text" required />
+        <input type="text" formControlName="username" required />
         <span class="pi pi-user"></span>
         <label>Usuario</label>
       </div>
       <div class="field">
-        <input type="password" required />
+        <input type="password" formControlName="password" required />
         <span class="pi pi-lock"></span>
         <label>Contraseña</label>
       </div>
       <div class="forgot-pass">
         <a href="#">¿Olvidaste tu contraseña?</a>
       </div>
-      <button>Iniciar Sesion</button>
+      <button [disabled]="!loginForm.valid">Iniciar Sesion</button>
       <div class="sign-up">
         ¿No estas registrado?
         <a href="#">Registrate!</a>

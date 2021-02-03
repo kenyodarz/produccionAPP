@@ -9,7 +9,7 @@ import { TokenStorageService } from '../core/services/token-storage.service';
 export class LoginGuard implements CanActivate {
   constructor(private token: TokenStorageService, private router: Router) {}
   canActivate() {
-    if (!this.token.getToken) {
+    if (!!this.token.getToken) {
       return true;
     } else {
       this.router.navigate(['/login']);

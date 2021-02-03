@@ -1,1 +1,26 @@
-<p>resume works!</p>
+<nav>
+  <input type="checkbox" id="check" />
+  <label for="check" class="checkbtn">
+    <i class="fas fa-bars"></i>
+  </label>
+  <label class="logo">Produccion</label>
+  <ul>
+    <li>
+      <a [routerLink]="['/resume/home']" routerLinkActive="active">Home</a>
+    </li>
+    <li>
+      <a [routerLink]="['estructuras']" routerLinkActive="active"
+        >Estructuras</a
+      >
+    </li>
+    <li>
+      <a [routerLink]="['formato']" routerLinkActive="active">Formulario</a>
+    </li>
+    <li>
+      <a [routerLink]="['/login']" routerLinkActive="active">Inicio de Sesión</a>
+    </li>
+  </ul>
+</nav>
+<section>
+  <router-outlet></router-outlet>
+</section>

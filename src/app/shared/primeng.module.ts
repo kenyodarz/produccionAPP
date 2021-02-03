@@ -5,12 +5,15 @@ import { ToastModule } from 'primeng/toast';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { TabMenuModule } from 'primeng/tabmenu';
+
 
 const myModule = [
   ToastModule,
   MessagesModule,
   MessageModule,
   ConfirmDialogModule,
+  TabMenuModule,
 ];
 
 @NgModule({
