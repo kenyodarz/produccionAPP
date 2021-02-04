@@ -22,12 +22,15 @@ export class DesignComponent implements OnInit {
   listDesign: Design[] = [];
   formDesign: FormGroup;
 
+  items: MenuItem[] = [];
   displaySaveEditDialog: boolean = true;
   title: string = '';
 
   constructor(
     private designService: DesignService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private confirmationService: ConfirmationService,
+    private fb: FormBuilder
   ) {}
 
   obtenerDesigns() {
@@ -67,6 +70,7 @@ export class DesignComponent implements OnInit {
   }
 
   mostrarDialogoGuardar(editar: boolean) {
+    this.formDesign.reset();
     if (editar) {
       if (this.selectedDesign != null && this.selectedDesign.id != null) {
         this.title = 'Editar';
@@ -85,7 +89,107 @@ export class DesignComponent implements OnInit {
     this.displaySaveEditDialog = true;
   }
 
+  onGuardar() {
+    this.design = this.formDesign.value;
+    this.guardarDesign();
+  }
+
+  eliminarDesign() {
+    if (this.selectedDesign === null || this.selectedDesign.id === null) {
+      this.messageService.add({
+        severity: 'warn',
+        summary: '¡¡¡Advertencia!!!',
+        detail: 'Debe Seleccionar un Diseño',
+      });
+      return;
+    }
+    this.confirmationService.confirm({
+      message: '¿Está seguro que desea eliminar este diseño?',
+      accept: () => {
+        this.designService.delete(this.selectedDesign.id).subscribe(
+          (design: Design) => {
+            this.messageService.add({
+              severity: 'info',
+              summary: 'Resultado',
+              detail: `Se eliminó el equipo ${design.id} correctamente`,
+            });
+            this.validarEliminar(design);
+          },
+          (error) => {
+            console.error(error);
+            this.messageService.add({
+              severity: 'error',
+              summary: `${error.error.error}`,
+              detail: `No se puede eliminar el diseño si tienes transformadores anidados a el`,
+            });
+          }
+        );
+      },
+    });
+  }
+
+  validarEliminar(design: Design) {
+    this.listDesign.splice(
+      this.listDesign.findIndex((e) => e.id == design.id),
+      1
+    );
+  }
+
   ngOnInit(): void {
     this.obtenerDesigns();
+    this.formDesign = this.fb.group({
+      id: new FormControl(null, Validators.required),
+      kva: new FormControl(null, Validators.required),
+      marca: new FormControl(null, Validators.required),
+      fecha: new FormControl(null, Validators.required),
+      fase: new FormControl(null, Validators.required),
+      voltajeNominalPrimario: new FormControl(null, Validators.required),
+      voltajeNominalSecundario: new FormControl(null, Validators.required),
+      tipoDeNucleo: new FormControl(null, Validators.required),
+      formaDelNucleo: new FormControl(null, Validators.required),
+      cantidadDeFe: new FormControl(null, Validators.required),
+      anchoDeFe: new FormControl(null, Validators.required),
+      anchoVentana: new FormControl(null, Validators.required),
+      altoVentana: new FormControl(null, Validators.required),
+      conductorSecundario: new FormControl(null, Validators.required),
+      grupoConnection: new FormControl(null, Validators.required),
+      tipoLaminaMagnetic: new FormControl(null, Validators.required),
+      positionNominalConmutador: new FormControl(null, Validators.required),
+      pesoNucleo1: new FormControl(null, Validators.required),
+      pesoNucleo2: new FormControl(null, Validators.required),
+      pesoTotal: new FormControl(null, Validators.required),
+      poW: new FormControl(null, Validators.required),
+      induction: new FormControl(null, Validators.required),
+      inductionTDesign: new FormControl(null, Validators.required),
+      connectionBajaTension: new FormControl(null, Validators.required),
+      connectionAltaTension: new FormControl(null, Validators.required),
+      lmn1: new FormControl(null, Validators.required),
+      lmn2: new FormControl(null, Validators.required),
+      anet: new FormControl(null, Validators.required),
+      wkgCalculado: new FormControl(null, Validators.required),
+      wkgTablaLamina: new FormControl(null, Validators.required),
+      inductionTablaLamina: new FormControl(null, Validators.required),
+      inductionIngresoManual: new FormControl(null, Validators.required),
+      cantidadAceite: new FormControl(null, Validators.required),
+      tipoAceite: new FormControl(null, Validators.required),
+      tipoTransformador: new FormControl(null, Validators.required),
+    });
+    this.items = [
+      {
+        label: 'Nuevo',
+        icon: 'pi pi-fw pi-plus',
+        command: () => this.mostrarDialogoGuardar(false),
+      },
+      {
+        label: 'Editar',
+        icon: 'pi pi-fw pi-pencil',
+        command: () => this.mostrarDialogoGuardar(true),
+      },
+      {
+        label: 'Actualizar',
+        icon: 'pi pi-fw pi-refresh',
+        command: () => this.obtenerDesigns(),
+      },
+    ];
   }
 }
