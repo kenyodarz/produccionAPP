@@ -17,10 +17,18 @@ import { Design } from 'src/app/core/models/design';
   styleUrls: ['./design.component.css'],
 })
 export class DesignComponent implements OnInit {
-  design: Design;
+  design: Design = new Design();
+  selectedDesign: Design = new Design();
   listDesign: Design[] = [];
+  formDesign: FormGroup;
 
-  constructor(private designService: DesignService) {}
+  displaySaveEditDialog: boolean = true;
+  title: string = '';
+
+  constructor(
+    private designService: DesignService,
+    private messageService: MessageService
+  ) {}
 
   obtenerDesigns() {
     this.designService.getAll().subscribe((array: Design[]) => {
@@ -37,7 +45,45 @@ export class DesignComponent implements OnInit {
     });
   }
 
+  guardarDesign() {
+    this.designService.save(this.design).subscribe((design: Design) => {
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Guardado',
+        detail: `Se ha guardado correctamente el diseño ${design.id}`,
+      });
+      this.validarDesign(design);
+      this.displaySaveEditDialog = false;
+    });
+  }
 
+  validarDesign(design: Design) {
+    let index = this.listDesign.findIndex((e) => e.id == design.id);
+    if (index != -1) {
+      this.listDesign[index] = design;
+    } else {
+      this.listDesign.push(design);
+    }
+  }
+
+  mostrarDialogoGuardar(editar: boolean) {
+    if (editar) {
+      if (this.selectedDesign != null && this.selectedDesign.id != null) {
+        this.title = 'Editar';
+        this.formDesign.patchValue(this.selectedDesign);
+      } else {
+        this.messageService.add({
+          severity: 'warn',
+          summary: '¡¡¡Advertencia!!!',
+          detail: 'Debe Seleccionar un Diseño',
+        });
+      }
+    } else {
+      this.title = 'Guardar';
+      this.design = new Design();
+    }
+    this.displaySaveEditDialog = true;
+  }
 
   ngOnInit(): void {
     this.obtenerDesigns();
