@@ -6,7 +6,12 @@ import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { TabMenuModule } from 'primeng/tabmenu';
-
+import { PanelModule } from 'primeng/panel';
+import { MenubarModule } from 'primeng/menubar';
+import { TableModule } from 'primeng/table';
+import { InputTextModule } from 'primeng/inputtext';
+import { PaginatorModule } from 'primeng/paginator';
+import { SidebarModule } from 'primeng/sidebar';
 
 const myModule = [
   ToastModule,
@@ -14,6 +19,12 @@ const myModule = [
   MessageModule,
   ConfirmDialogModule,
   TabMenuModule,
+  PanelModule,
+  MenubarModule,
+  TableModule,
+  InputTextModule,
+  PaginatorModule,
+  SidebarModule,
 ];
 
 @NgModule({

@@ -1,5 +1,6 @@
 nav {
-  background: #617c8a;
+  /* background: #617c8a; */
+  background: #7b95a3;
   width: 100%;
   height: 80px;
 }
@@ -37,7 +38,7 @@ nav ul li a {
 a.active,
 a:hover {
   transition: all 0.5s;
-  background: #445761;
+  background: #617c8a;
 }
 
 a:hover {

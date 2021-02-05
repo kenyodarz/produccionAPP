@@ -1,1 +1,68 @@
-<p>design works!</p>
+<div class="container">
+  <p-panel styleClass="p-fluid">
+    <p-header>
+      <span>Diseños</span>
+    </p-header>
+    <p-menubar [model]="items"></p-menubar>
+    <p-table
+      [value]="listDesign"
+      #dt
+      [paginator]="true"
+      selectionMode="single"
+      [(selection)]="selectedDesign"
+      dataKey="id"
+      [rows]="10"
+      [responsive]="true"
+      [globalFilterFields]="['id']"
+    >
+      <ng-template pTemplate="caption">
+        <div style="text-align: right">
+          <i class="pi pi-seach" style="margin: 4px 4px 0 0"></i>
+          <input
+            type="text"
+            pInputText
+            size="50"
+            placeholder="Buscar"
+            (input)="dt.filterGlobal($any($event.target).value, 'contains')"
+            style="width: auto"
+          />
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th>NRO</th>
+          <th style="width: 5em">KVA</th>
+          <th>Marca</th>
+          <th>Tipo</th>
+          <th style="width: 8rem">Acciones</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-design>
+        <tr [pSelectableRow]="design">
+          <td>{{ design.id }}</td>
+          <td>{{ design.kva }}</td>
+          <td>{{ design.marca }}</td>
+          <td>{{ design.tipoTransformador }}</td>
+          <td>
+            <button
+              type="button"
+              pButton
+              pRipple
+              icon="pi pi-arrow-right"
+              class="p-button-outlined p-button-text"
+              (click)="displayDataSidebar = true"
+            ></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-panel>
+</div>
+
+<p-sidebar
+  [(visible)]="displayDataSidebar"
+  [fullScreen]="true"
+  [baseZIndex]="10000"
+>
+  <h3>DATOS PARA DISEÑO</h3>
+</p-sidebar>

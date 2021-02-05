@@ -23,7 +23,8 @@ export class DesignComponent implements OnInit {
   formDesign: FormGroup;
 
   items: MenuItem[] = [];
-  displaySaveEditDialog: boolean = true;
+  displaySaveEditDialog: boolean = false;
+  displayDataSidebar: boolean = true;
   title: string = '';
 
   constructor(
@@ -141,7 +142,7 @@ export class DesignComponent implements OnInit {
       id: new FormControl(null, Validators.required),
       kva: new FormControl(null, Validators.required),
       marca: new FormControl(null, Validators.required),
-      fecha: new FormControl(null, Validators.required),
+      fecha: new FormControl(),
       fase: new FormControl(null, Validators.required),
       voltajeNominalPrimario: new FormControl(null, Validators.required),
       voltajeNominalSecundario: new FormControl(null, Validators.required),
@@ -184,6 +185,11 @@ export class DesignComponent implements OnInit {
         label: 'Editar',
         icon: 'pi pi-fw pi-pencil',
         command: () => this.mostrarDialogoGuardar(true),
+      },
+      {
+        label: 'Eliminar',
+        icon: 'pi pi-fw pi-trash',
+        command: () => this.eliminarDesign(),
       },
       {
         label: 'Actualizar',
