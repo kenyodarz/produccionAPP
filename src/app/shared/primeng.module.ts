@@ -12,6 +12,7 @@ import { TableModule } from 'primeng/table';
 import { InputTextModule } from 'primeng/inputtext';
 import { PaginatorModule } from 'primeng/paginator';
 import { SidebarModule } from 'primeng/sidebar';
+import { FieldsetModule } from 'primeng/fieldset';
 
 const myModule = [
   ToastModule,
@@ -25,6 +26,7 @@ const myModule = [
   InputTextModule,
   PaginatorModule,
   SidebarModule,
+  FieldsetModule,
 ];
 
 @NgModule({

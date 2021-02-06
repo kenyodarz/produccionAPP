@@ -65,4 +65,64 @@
   [baseZIndex]="10000"
 >
   <h3>DATOS PARA DISEÑO</h3>
+  <form [formGroup]="formDesign">
+    <p-fieldset legend="Datos Basicos">
+      <div class="p-fluid p-formgrid p-grid">
+        <div class="p-field p-col-12 p-md-6">
+          <label for="kva">POTENCIA EN KVA</label>
+          <input id="kva" formControlName="kva" type="text" pInputText />
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          <label for="marca">MARCA</label>
+          <input id="marca" formControlName="marca" type="text" pInputText />
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          <label for="fecha">AÑO DE FABRICACION</label>
+          <input id="fecha" type="text" formControlName="fecha" pInputText />
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          <label for="fases">FASES</label>
+          <input id="fases" type="text" formControlName="fase" pInputText />
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          <label for="voltajeNominalPrimario">VOLTAJE NOMINAL PRIMARIO</label>
+          <input id="voltajeNominalPrimario" formControlName="voltajeNominalPrimario" type="text" pInputText />
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          <label for="voltajeNominalSecundario"
+            >VOLTAJE NOMINAL SECUNDARIO</label
+          >
+          <input id="voltajeNominalSecundario" formControlName="voltajeNominalSecundario" type="text" pInputText />
+        </div>
+      </div>
+    </p-fieldset>
+    <p-fieldset legend="Datos Núcleo">
+      <div class="p-fluid p-formgrid p-grid">
+        <div class="p-field p-col-12 p-md-6">
+          <label for="tipoDeNucleo">TIPO NUCLE</label>
+          <input id="tipoDeNucleo" formControlName="tipoDeNucleo" type="text" pInputText />
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          <label for="formaDelNucleo">FORMA DEL NUCLEO</label>
+          <input id="formaDelNucleo" formControlName="formaDelNucleo" type="text" pInputText />
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          <label for="cantidadDeFe">CANTIDAD DE Fe EN UN ANILLO X 2</label>
+          <input id="cantidadDeFe" formControlName="cantidadDeFe" type="text" pInputText />
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          <label for="kva">ANCHO DE Fe</label>
+          <input id="kva" formControlName="kva" type="text" pInputText />
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          <label for="kva">ANCHO VENTANA</label>
+          <input id="kva" formControlName="kva" type="text" pInputText />
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          <label for="kva">ALTO VENTANA</label>
+          <input id="kva" formControlName="kva" type="text" pInputText />
+        </div>
+      </div>
+    </p-fieldset>
+  </form>
 </p-sidebar>

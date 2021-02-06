@@ -39,13 +39,14 @@ export class DesignComponent implements OnInit {
       let listDesign: Design[] = [];
       array.forEach((design) => {
         listDesign.push(design);
+        this.formDesign.patchValue(design);
       });
       this.listDesign = listDesign.sort(function (a, b) {
         if (a.id > b.id) return 1;
         if (a.id < b.id) return -1;
         return 0;
       });
-      console.log(this.listDesign);
+      console.log(this.formDesign.value);
     });
   }
 

@@ -127,7 +127,7 @@
     "ora" "5.2.0"
     "rxjs" "6.6.3"
 
-"@angular/animations@~11.1.1", "@angular/animations@11.1.1":
+"@angular/animations@^11.1.1", "@angular/animations@11.1.1":
   "integrity" "sha512-okideoWvlTz6VqHXDWKlMGj1beWxq/ag4n/+7y8IENQFgrKQWu4m52Igr5sJUfT1W8rXqLPaSGEpp9h+1SCDcQ=="
   "resolved" "https://registry.yarnpkg.com/@angular/animations/-/animations-11.1.1.tgz"
   "version" "11.1.1"
@@ -7029,6 +7029,11 @@
   "integrity" "sha512-p+T744ZyjjiaFlMUZZv6YPC5JrkNj8maRmPaQCWFJFplUAzpIUTRaTcS+7wmZtUoFXHtESJb23ISliaWyz3SHA=="
   "resolved" "https://registry.yarnpkg.com/pretty-bytes/-/pretty-bytes-5.5.0.tgz"
   "version" "5.5.0"
+
+"primeflex@^2.0.0":
+  "integrity" "sha512-t6AG3iRI1rh04uI+9nC4JSlbKfA8PnpRDFtjyqi3rDSLRgdfOuhIiunJbjVQ4alnnCfuQAAbVyde1AKN9QxT/w=="
+  "resolved" "https://registry.npmjs.org/primeflex/-/primeflex-2.0.0.tgz"
+  "version" "2.0.0"
 
 "primeicons@^4.1.0":
   "integrity" "sha512-uEv2pSPk1zQCfaB2VgnUfnUxxlGryYi+5rbdxmZBBt5v9S/pscIQYS5YDLxsQZ7D9jn5c76+Tx5wX/2J1nK6sA=="
