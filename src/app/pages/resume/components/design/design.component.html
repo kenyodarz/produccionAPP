@@ -50,7 +50,15 @@
               pRipple
               icon="pi pi-arrow-right"
               class="p-button-outlined p-button-text"
-              (click)="displayDataSidebar = true"
+              (click)="desplegarDatos(design)"
+            ></button>
+            <button
+              type="button"
+              pButton
+              pRipple
+              icon="pi pi-trash"
+              class="p-button-outlined p-button-danger p-button-text"
+              (click)="EliminarDatos(design)"
             ></button>
           </td>
         </tr>
@@ -67,6 +75,16 @@
 >
   <h3>DATOS PARA DISEÑO</h3>
   <form [formGroup]="formDesign">
+    <div *ngIf="title === 'Nuevo'">
+      <p-fieldset legend="Diseño" [toggleable]="true" >
+        <div class="p-fluid p-formgrid p-grid">
+          <div class="p-field p-col">
+          <label for="id">NRO DISEÑO</label>
+          <input id="id" formControlName="id" type="text" pInputText />
+        </div>
+        </div>
+      </p-fieldset>
+    </div>
     <p-fieldset legend="Datos Básicos" [toggleable]="true">
       <div class="p-fluid p-formgrid p-grid">
         <div class="p-field p-col-12 p-md-6">
@@ -181,7 +199,7 @@
             pInputText
           />
         </div>
-        <div *ngIf="fase.value === 3" class="p-grid p-col">
+        <div *ngIf="fase.value !== 1" class="p-grid p-col">
           <div class="p-field p-col-12 p-md-6">
             <label for="pesoNucleo1">PESO NUCLEO 1</label>
             <input
@@ -364,4 +382,19 @@
       </div>
     </p-fieldset>
   </form>
+  <ng-template pTemplate="footer">
+    <div class="p-fluid p-formgrid p-grid p-jc-end" id="botones">
+      <p-button
+        label="Guardar"
+        icon="pi pi-check"
+        (onClick)="onGuardar()"
+      ></p-button>
+      <p-button
+        label="Cancelar"
+        icon="pi pi-times"
+        styleClass="p-button-secondary"
+        (onClick)="displayDataSidebar = false"
+      ></p-button>
+    </div>
+  </ng-template>
 </p-sidebar>

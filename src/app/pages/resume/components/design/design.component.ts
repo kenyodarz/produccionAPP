@@ -24,7 +24,7 @@ export class DesignComponent implements OnInit {
 
   items: MenuItem[] = [];
   displaySaveEditDialog: boolean = false;
-  displayDataSidebar: boolean = true;
+  displayDataSidebar: boolean = false;
   title: string = '';
 
   constructor(
@@ -39,7 +39,6 @@ export class DesignComponent implements OnInit {
       let listDesign: Design[] = [];
       array.forEach((design) => {
         listDesign.push(design);
-        this.formDesign.patchValue(design);
       });
       this.listDesign = listDesign.sort(function (a, b) {
         if (a.id > b.id) return 1;
@@ -59,6 +58,7 @@ export class DesignComponent implements OnInit {
       });
       this.validarDesign(design);
       this.displaySaveEditDialog = false;
+      this.displayDataSidebar = false;
     });
   }
 
@@ -85,10 +85,10 @@ export class DesignComponent implements OnInit {
         });
       }
     } else {
-      this.title = 'Guardar';
+      this.title = 'Nuevo';
       this.design = new Design();
     }
-    this.displaySaveEditDialog = true;
+    this.displayDataSidebar = true;
   }
 
   onGuardar() {
@@ -137,8 +137,19 @@ export class DesignComponent implements OnInit {
     );
   }
 
-  get fase(){
-    return this.formDesign.get('fase')
+  get fase() {
+    return this.formDesign.get('fase');
+  }
+
+  desplegarDatos(desing: Design) {
+    this.formDesign.patchValue(desing);
+    this.title = 'Editar';
+    this.displayDataSidebar = true;
+  }
+
+  EliminarDatos(desing: Design) {
+    this.selectedDesign = desing
+    this.eliminarDesign();
   }
 
   ngOnInit(): void {
@@ -186,16 +197,16 @@ export class DesignComponent implements OnInit {
         icon: 'pi pi-fw pi-plus',
         command: () => this.mostrarDialogoGuardar(false),
       },
-      {
-        label: 'Editar',
-        icon: 'pi pi-fw pi-pencil',
-        command: () => this.mostrarDialogoGuardar(true),
-      },
-      {
-        label: 'Eliminar',
-        icon: 'pi pi-fw pi-trash',
-        command: () => this.eliminarDesign(),
-      },
+      // {
+      //   label: 'Editar',
+      //   icon: 'pi pi-fw pi-pencil',
+      //   command: () => this.mostrarDialogoGuardar(true),
+      // },
+      // {
+      //   label: 'Eliminar',
+      //   icon: 'pi pi-fw pi-trash',
+      //   command: () => this.eliminarDesign(),
+      // },
       {
         label: 'Actualizar',
         icon: 'pi pi-fw pi-refresh',

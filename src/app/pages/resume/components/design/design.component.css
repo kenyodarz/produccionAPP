@@ -28,3 +28,8 @@
 ::ng-deep .p-panel .p-panel-content {
   height: 100%;
 }
+
+#botones {
+  grid-gap: 20px;
+  margin-top: 10px;
+}
