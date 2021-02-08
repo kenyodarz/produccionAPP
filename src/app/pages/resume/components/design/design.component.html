@@ -65,11 +65,9 @@
   [baseZIndex]="10000"
   [style]="{ 'overflow-y': 'scroll' }"
 >
-  Content
   <h3>DATOS PARA DISEÑO</h3>
-
   <form [formGroup]="formDesign">
-    <p-fieldset legend="Datos Básicos">
+    <p-fieldset legend="Datos Básicos" [toggleable]="true">
       <div class="p-fluid p-formgrid p-grid">
         <div class="p-field p-col-12 p-md-6">
           <label for="kva">POTENCIA EN KVA</label>
@@ -109,7 +107,7 @@
         </div>
       </div>
     </p-fieldset>
-    <p-fieldset legend="Datos Núcleo">
+    <p-fieldset legend="Datos Núcleo" [toggleable]="true">
       <div class="p-fluid p-formgrid p-grid">
         <div class="p-field p-col-12 p-md-6">
           <label for="tipoDeNucleo">TIPO NUCLE</label>
@@ -205,27 +203,163 @@
         </div>
       </div>
     </p-fieldset>
-    <p-fieldset legend="Conexiones">
+    <p-fieldset legend="Conexiones" [toggleable]="true">
       <div class="p-fluid p-formgrid p-grid">
         <div class="p-field p-col-12 p-md-6">
-          <label for="kva">POTENCIA EN KVA</label>
-          <input id="kva" formControlName="kva" type="text" pInputText />
+          <label for="conductorSecundario">CONDUCTOR SECUNDARIO</label>
+          <input
+            id="conductorSecundario"
+            formControlName="conductorSecundario"
+            type="text"
+            pInputText
+          />
         </div>
         <div class="p-field p-col-12 p-md-6">
-          <label for="kva">POTENCIA EN KVA</label>
-          <input id="kva" formControlName="kva" type="text" pInputText />
+          <label for="grupoConnection">GRUPO CONEXIÓN</label>
+          <input
+            id="grupoConnection"
+            formControlName="grupoConnection"
+            type="text"
+            pInputText
+          />
         </div>
         <div class="p-field p-col-12 p-md-6">
-          <label for="kva">POTENCIA EN KVA</label>
-          <input id="kva" formControlName="kva" type="text" pInputText />
+          <label for="positionNominalConmutador"
+            >POSICIÓN NOMINAL DEL CONMUTADOR</label
+          >
+          <input
+            id="positionNominalConmutador"
+            formControlName="positionNominalConmutador"
+            type="text"
+            pInputText
+          />
         </div>
         <div class="p-field p-col-12 p-md-6">
-          <label for="kva">POTENCIA EN KVA</label>
-          <input id="kva" formControlName="kva" type="text" pInputText />
+          <label for="connectionBajaTension">CONEXÍON BAJA TENSION</label>
+          <input
+            id="connectionBajaTension"
+            formControlName="connectionBajaTension"
+            type="text"
+            pInputText
+          />
         </div>
         <div class="p-field p-col-12 p-md-6">
-          <label for="kva">POTENCIA EN KVA</label>
-          <input id="kva" formControlName="kva" type="text" pInputText />
+          <label for="connectionAltaTension">CONEXÍON ALTA TENSION</label>
+          <input
+            id="connectionAltaTension"
+            formControlName="connectionAltaTension"
+            type="text"
+            pInputText
+          />
+        </div>
+      </div>
+    </p-fieldset>
+    <p-fieldset legend="Calculos" [toggleable]="true">
+      <div class="p-fluid p-formgrid p-grid">
+        <div class="p-field p-col-12 p-md-6">
+          <label for="poW">Po(W) (NORMA NTC 818 819)</label>
+          <input id="poW" formControlName="poW" type="text" pInputText />
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          <label for="induction">INDUCCIÓN</label>
+          <input
+            id="induction"
+            formControlName="induction"
+            type="text"
+            pInputText
+          />
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          <label for="inductionTDesign">INDUCCIÓN (T) DISEÑO</label>
+          <input
+            id="inductionTDesign"
+            formControlName="inductionTDesign"
+            type="text"
+            pInputText
+          />
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          <label for="lmn1">LMN1(cm)</label>
+          <input id="lmn1" formControlName="lmn1" type="text" pInputText />
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          <label for="lmn2">LMN2(cm)</label>
+          <input id="lmn2" formControlName="lmn2" type="text" pInputText />
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          <label for="anet">ANET(cm²)</label>
+          <input id="anet" formControlName="anet" type="text" pInputText />
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          <label for="wkgCalculado">(W/KG) calculado</label>
+          <input
+            id="wkgCalculado"
+            formControlName="wkgCalculado"
+            type="text"
+            pInputText
+          />
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          <label for="wkgTablaLamina">(W/KG) segun tabla lamina</label>
+          <input
+            id="wkgTablaLamina"
+            formControlName="wkgTablaLamina"
+            type="text"
+            pInputText
+          />
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          <label for="inductionTablaLamina"
+            >INDUCCIÓN (T) SEGÚN TABLA LAMINA</label
+          >
+          <input
+            id="inductionTablaLamina"
+            formControlName="inductionTablaLamina"
+            type="text"
+            pInputText
+          />
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          <label for="inductionIngresoManual"
+            >INDUCCIÓN (T) INGRESO MANUAL</label
+          >
+          <input
+            id="inductionIngresoManual"
+            formControlName="inductionIngresoManual"
+            type="text"
+            pInputText
+          />
+        </div>
+      </div>
+    </p-fieldset>
+    <p-fieldset legend="Otros Valores" [toggleable]="true">
+      <div class="p-fluid p-formgrid p-grid">
+        <div class="p-field p-col-12 p-md-6">
+          <label for="tipoTransformador">TIPO DE TRANSFORMADOR</label>
+          <input
+            id="tipoTransformador"
+            formControlName="tipoTransformador"
+            type="text"
+            pInputText
+          />
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          <label for="tipoAceite">TIPO DE ACEITE</label>
+          <input
+            id="tipoAceite"
+            formControlName="tipoAceite"
+            type="text"
+            pInputText
+          />
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          <label for="cantidadAceite">CANTIDAD DE ACEITE</label>
+          <input
+            id="cantidadAceite"
+            formControlName="cantidadAceite"
+            type="text"
+            pInputText
+          />
         </div>
       </div>
     </p-fieldset>
