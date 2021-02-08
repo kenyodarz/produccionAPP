@@ -137,6 +137,10 @@ export class DesignComponent implements OnInit {
     );
   }
 
+  get fase(){
+    return this.formDesign.get('fase')
+  }
+
   ngOnInit(): void {
     this.obtenerDesigns();
     this.formDesign = this.fb.group({

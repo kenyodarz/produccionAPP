@@ -63,10 +63,13 @@
   [(visible)]="displayDataSidebar"
   [fullScreen]="true"
   [baseZIndex]="10000"
+  [style]="{ 'overflow-y': 'scroll' }"
 >
+  Content
   <h3>DATOS PARA DISEÑO</h3>
+
   <form [formGroup]="formDesign">
-    <p-fieldset legend="Datos Basicos">
+    <p-fieldset legend="Datos Básicos">
       <div class="p-fluid p-formgrid p-grid">
         <div class="p-field p-col-12 p-md-6">
           <label for="kva">POTENCIA EN KVA</label>
@@ -86,13 +89,23 @@
         </div>
         <div class="p-field p-col-12 p-md-6">
           <label for="voltajeNominalPrimario">VOLTAJE NOMINAL PRIMARIO</label>
-          <input id="voltajeNominalPrimario" formControlName="voltajeNominalPrimario" type="text" pInputText />
+          <input
+            id="voltajeNominalPrimario"
+            formControlName="voltajeNominalPrimario"
+            type="text"
+            pInputText
+          />
         </div>
         <div class="p-field p-col-12 p-md-6">
           <label for="voltajeNominalSecundario"
             >VOLTAJE NOMINAL SECUNDARIO</label
           >
-          <input id="voltajeNominalSecundario" formControlName="voltajeNominalSecundario" type="text" pInputText />
+          <input
+            id="voltajeNominalSecundario"
+            formControlName="voltajeNominalSecundario"
+            type="text"
+            pInputText
+          />
         </div>
       </div>
     </p-fieldset>
@@ -100,26 +113,118 @@
       <div class="p-fluid p-formgrid p-grid">
         <div class="p-field p-col-12 p-md-6">
           <label for="tipoDeNucleo">TIPO NUCLE</label>
-          <input id="tipoDeNucleo" formControlName="tipoDeNucleo" type="text" pInputText />
+          <input
+            id="tipoDeNucleo"
+            formControlName="tipoDeNucleo"
+            type="text"
+            pInputText
+          />
         </div>
         <div class="p-field p-col-12 p-md-6">
           <label for="formaDelNucleo">FORMA DEL NUCLEO</label>
-          <input id="formaDelNucleo" formControlName="formaDelNucleo" type="text" pInputText />
+          <input
+            id="formaDelNucleo"
+            formControlName="formaDelNucleo"
+            type="text"
+            pInputText
+          />
         </div>
         <div class="p-field p-col-12 p-md-6">
           <label for="cantidadDeFe">CANTIDAD DE Fe EN UN ANILLO X 2</label>
-          <input id="cantidadDeFe" formControlName="cantidadDeFe" type="text" pInputText />
+          <input
+            id="cantidadDeFe"
+            formControlName="cantidadDeFe"
+            type="text"
+            pInputText
+          />
         </div>
         <div class="p-field p-col-12 p-md-6">
-          <label for="kva">ANCHO DE Fe</label>
+          <label for="anchoDeFe">ANCHO DE Fe</label>
+          <input
+            id="anchoDeFe"
+            formControlName="anchoDeFe"
+            type="text"
+            pInputText
+          />
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          <label for="anchoVentana">ANCHO VENTANA</label>
+          <input
+            id="anchoVentana"
+            formControlName="anchoVentana"
+            type="text"
+            pInputText
+          />
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          <label for="altoVentana">ALTO VENTANA</label>
+          <input
+            id="altoVentana"
+            formControlName="altoVentana"
+            type="text"
+            pInputText
+          />
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          <label for="tipoLaminaMagnetic">TIPO DE LAMINA MAGNETICA</label>
+          <input
+            id="tipoLaminaMagnetic"
+            formControlName="tipoLaminaMagnetic"
+            type="text"
+            pInputText
+          />
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          <label for="pesoTotal">PESO TOTAL DEL NUCLEO</label>
+          <input
+            id="pesoTotal"
+            formControlName="pesoTotal"
+            type="text"
+            pInputText
+          />
+        </div>
+        <div *ngIf="fase.value === 3" class="p-grid p-col">
+          <div class="p-field p-col-12 p-md-6">
+            <label for="pesoNucleo1">PESO NUCLEO 1</label>
+            <input
+              id="pesoNucleo1"
+              formControlName="pesoNucleo1"
+              type="text"
+              pInputText
+            />
+          </div>
+          <div class="p-field p-col-12 p-md-6">
+            <label for="pesoNucleo2">PESO NUCLEO 2</label>
+            <input
+              id="pesoNucleo2"
+              formControlName="pesoNucleo2"
+              type="text"
+              pInputText
+            />
+          </div>
+        </div>
+      </div>
+    </p-fieldset>
+    <p-fieldset legend="Conexiones">
+      <div class="p-fluid p-formgrid p-grid">
+        <div class="p-field p-col-12 p-md-6">
+          <label for="kva">POTENCIA EN KVA</label>
           <input id="kva" formControlName="kva" type="text" pInputText />
         </div>
         <div class="p-field p-col-12 p-md-6">
-          <label for="kva">ANCHO VENTANA</label>
+          <label for="kva">POTENCIA EN KVA</label>
           <input id="kva" formControlName="kva" type="text" pInputText />
         </div>
         <div class="p-field p-col-12 p-md-6">
-          <label for="kva">ALTO VENTANA</label>
+          <label for="kva">POTENCIA EN KVA</label>
+          <input id="kva" formControlName="kva" type="text" pInputText />
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          <label for="kva">POTENCIA EN KVA</label>
+          <input id="kva" formControlName="kva" type="text" pInputText />
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          <label for="kva">POTENCIA EN KVA</label>
           <input id="kva" formControlName="kva" type="text" pInputText />
         </div>
       </div>

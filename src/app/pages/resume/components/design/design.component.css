@@ -28,3 +28,7 @@
 ::ng-deep .p-panel .p-panel-content {
   height: 100%;
 }
+
+::ng-deep .p-sidebar {
+  /* scroll-behavior: smooth; */
+}
