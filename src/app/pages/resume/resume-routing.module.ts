@@ -6,6 +6,7 @@ import { LoginGuard } from 'src/app/guards/login.guard';
 import { ResumeComponent } from './resume.component';
 import { HomeComponent } from './components/home/home.component';
 import { DesignComponent } from './components/design/design.component';
+import { ModelosComponent } from './components/modelos/modelos.component';
 
 
 
@@ -28,6 +29,11 @@ const routes: Routes = [
       {
         path: 'design',
         component: DesignComponent,
+        canActivate: [LoginGuard],
+      },
+      {
+        path: 'modelos',
+        component: ModelosComponent,
         canActivate: [LoginGuard],
       },
     ],

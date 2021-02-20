@@ -6,10 +6,11 @@ import { ResumeRoutingModule } from './resume-routing.module';
 import { ResumeComponent } from './resume.component';
 import { HomeComponent } from './components/home/home.component';
 import { DesignComponent } from './components/design/design.component';
+import { ModelosComponent } from './components/modelos/modelos.component';
 
 
 @NgModule({
-  declarations: [ResumeComponent, HomeComponent, DesignComponent],
+  declarations: [ResumeComponent, HomeComponent, DesignComponent, ModelosComponent],
   imports: [
     CommonModule,
     ResumeRoutingModule,
