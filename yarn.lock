@@ -135,10 +135,10 @@
   dependencies:
     tslib "^2.0.0"
 
-"@angular/cdk@^11.1.1":
-  version "11.1.1"
-  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-11.1.1.tgz"
-  integrity sha512-rIog+eqv6RtpSWKM+iHQ5oHyOALMxRXkeTiJyvPfBCYQ2hzPN16+eNxP/JOR+C4y7pMaJyPur0pC572IZEnCsw==
+"@angular/cdk@^11.2.1":
+  version "11.2.1"
+  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-11.2.1.tgz#c06aa5b0ac76706240a4851ff704d70cbc6f3bf5"
+  integrity sha512-d+ERvvWqGykBm5ooWG8TmMjL6q6aOpUd13ha1sx960EfKJqNyideYUfPMp6xprTyxmUIUZ/G9AQ/pxnzrLGnsA==
   dependencies:
     tslib "^2.0.0"
   optionalDependencies:
@@ -6890,13 +6890,13 @@ primeflex@^2.0.0:
 
 primeicons@^4.1.0:
   version "4.1.0"
-  resolved "https://registry.yarnpkg.com/primeicons/-/primeicons-4.1.0.tgz"
+  resolved "https://registry.yarnpkg.com/primeicons/-/primeicons-4.1.0.tgz#19eaef8ef5594b0006358ae64e738d03e167c9bb"
   integrity sha512-uEv2pSPk1zQCfaB2VgnUfnUxxlGryYi+5rbdxmZBBt5v9S/pscIQYS5YDLxsQZ7D9jn5c76+Tx5wX/2J1nK6sA==
 
-primeng@^11.2.0:
-  version "11.2.0"
-  resolved "https://registry.yarnpkg.com/primeng/-/primeng-11.2.0.tgz"
-  integrity sha512-K0BrmI38aW3HW2EjEgobei3yWEOw5H2DikCy5DmGUL2B7cqX4M0vPGJFpkDHDk0szlsCh0O9G23FB0g0jCO7iQ==
+primeng@^11.2.3:
+  version "11.2.3"
+  resolved "https://registry.yarnpkg.com/primeng/-/primeng-11.2.3.tgz#66e3d817fe27c9a7703726537c03ddcc1998bb44"
+  integrity sha512-8elRAGal8a+qXJ4egRKXU+bUvIyfCxsiCerXgOPbwbo/TU/DBK7WBXGGGi6KJOamFqClAqj/FO3WLAdofKQSRQ==
   dependencies:
     tslib "^2.0.0"
 
