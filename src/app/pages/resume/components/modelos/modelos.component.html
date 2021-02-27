@@ -1,1 +1,53 @@
-<p>modelos works!</p>
+<div class="container">
+  <p-panel styleClass="p-fluid">
+    <p-header>
+      <span>Modelos</span>
+    </p-header>
+    <p-menubar [model]="items"></p-menubar>
+    <p-table
+    [value]="listModelo"
+    #dt
+    [paginator]="true"
+    selectionMode="single"
+    [(selection)]="selectecModelo"
+    dataKey="idModelo"
+    [rows]="10"
+    [globalFilterFields]="['nombreModelo', 'design.id']"
+    >
+    <ng-template pTemplate="caption">
+      <div style="text-align: right">
+          <i class="pi pi-seach" style="margin: 4px 4px 0 0"></i>
+          <input
+            type="text"
+            pInputText
+            size="50"
+            placeholder="Buscar"
+            (input)="dt.filterGlobal($any($event.target).value, 'contains')"
+            style="width: auto"
+          />
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th>MODELO</th>
+        <th>KVA</th>
+        <th>FASE</th>
+        <th>TIPO TRANSFORMADOR</th>
+        <th>TIPO ACEITE</th>
+        <th>STOCK</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-modelo>
+      <tr [pSelectableRow]="modelo">
+        <td>{{modelo.nombreModelo}}</td>
+        <td>{{modelo.kva}}</td>
+        <td>{{modelo.fase}}</td>
+        <td>{{modelo.tipoTransformador}}</td>
+        <td>{{modelo.tipoAceite}}</td>
+        <td>{{modelo.stock}}</td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate=""></ng-template>
+  </p-table>
+  </p-panel>
+</div>
